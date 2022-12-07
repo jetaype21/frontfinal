@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate, Link } from "react-router-dom";
+import { Route, Routes, Navigate, Link, useNavigate } from "react-router-dom";
 import styles from "./components/Main/styles.module.css";
 import Main from "./components/Main";
 import Signup from "./components/Singup";
@@ -21,9 +21,11 @@ function App() {
     asignaturas: [],
   });
 
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location.reload();
+    navigate("/login");
   };
 
   useEffect(() => {
